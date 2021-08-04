@@ -72,6 +72,20 @@ class Stipop(private val activity: Activity, private val stipopButton: StipopIma
             instance!!.showKeyboard()
         }
 
+        fun hideKeyboard(){
+
+            
+            if (instance?.keyboard == null) {
+                return
+            }
+
+            if (instance!!.keyboard!!.popupWindow.isShowing) {
+                instance!!.keyboard!!.canShow = false
+                instance!!.keyboard!!.hide()
+                instance!!.disableStickerIcon()
+            }
+        }
+
         /*
         fun show() {
             if (instance == null) {
@@ -233,17 +247,7 @@ class Stipop(private val activity: Activity, private val stipopButton: StipopIma
         }
     }
 
-    fun hideKeyboard(){
-        if (instance == null) {
-            return
-        }
 
-        if (keyboard!!.popupWindow.isShowing) {
-            this.keyboard!!.canShow = false
-            keyboard!!.hide()
-            this.disableStickerIcon()
-        }
-    }
 
 
     private fun setSizeForSoftKeyboard() {
