@@ -74,7 +74,7 @@ class Stipop(private val activity: Activity, private val stipopButton: StipopIma
 
         fun hideKeyboard(){
 
-            
+
             if (instance?.keyboard == null) {
                 return
             }
